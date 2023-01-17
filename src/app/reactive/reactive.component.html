@@ -12,14 +12,31 @@
 
     <label>
         Sobrenome:
-        <input type="text" formControlName="lastname">
+        <input type="text" formControlName="lastname" minlength="4">
+
+        <span *ngIf= "cadastroForm.get('lastname')?.errors && cadastroForm.get('lastname')?.touched || cadastroForm.get('lastname')?.dirty">
+            Adicionar o nome com {{cadastroForm.get('lastname')?.errors}}
+        </span>
     </label>
     
-    <p>
+    <!--p>
         {{cadastroForm.get('firstName')?.errors | json}}
         {{cadastroForm.get('firstName')?.touched | json}}
         {{cadastroForm.get('firstName')?.dirty | json}}
-    </p>
+    </p-->
+
+    <br>
+    <br>
+
+    <label>
+        Email:
+        <input type="text" formControlName ="email">
+    </label>
+    
+    <br>
+    <br>
+
+    {{cadastroForm.get('email')?.errors | json}}
 
     <br>
     <br>

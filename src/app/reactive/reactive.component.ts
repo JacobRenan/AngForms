@@ -10,9 +10,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 //criar rota em app-rounting.module
 export class ReactiveComponent {
   
+//validators
   cadastroForm: FormGroup = this.formBuilder.group({
     firstName: ['', Validators.required],
-    lastName: ['']
+    lastName: ['', [Validators.required, Validators.minLength(4)]],
+    email: ['', [Validators.required, Validators.email]]
   });
 
   constructor(private formBuilder: FormBuilder) { }
